@@ -20,7 +20,7 @@ Fx.Morph = new Class({
 
 	initialize: function(element, options){
 		this.element = this.subject = document.id(element);
-		this.parent(options);
+		Fx.CSS.prototype.initialize.call(this, options);
 	},
 
 	set: function(now){
@@ -31,7 +31,7 @@ Fx.Morph = new Class({
 
 	compute: function(from, to, delta){
 		var now = {};
-		for (var p in from) now[p] = this.parent(from[p], to[p], delta);
+		for (var p in from) now[p] = Fx.CSS.prototype.compute.call(this, from[p], to[p], delta);
 		return now;
 	},
 
@@ -44,7 +44,7 @@ Fx.Morph = new Class({
 			from[p] = parsed.from;
 			to[p] = parsed.to;
 		}
-		return this.parent(from, to);
+		return Fx.CSS.prototype.start.call(this, from, to);
 	}
 
 });

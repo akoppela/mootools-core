@@ -80,7 +80,8 @@ var implement = function(key, value, retain){
 
 	if (typeOf(value) == 'function'){
 		if (value.$hidden) return this;
-		this.prototype[key] = (retain) ? value : wrap(this, key, value);
+		// this.prototype[key] = (retain) ? value : wrap(this, key, value);
+		this.prototype[key] = value;
 	} else {
 		Object.merge(this.prototype, key, value);
 	}

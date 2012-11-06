@@ -24,7 +24,7 @@ Request.JSON = new Class({
 	},
 
 	initialize: function(options){
-		this.parent(options);
+		Request.prototype.initialize.call(this, options);
 		Object.append(this.headers, {
 			'Accept': 'application/json',
 			'X-Request': 'JSON'

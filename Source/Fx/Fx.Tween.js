@@ -20,7 +20,7 @@ Fx.Tween = new Class({
 
 	initialize: function(element, options){
 		this.element = this.subject = document.id(element);
-		this.parent(options);
+		Fx.CSS.prototype.initialize.call(this, options);
 	},
 
 	set: function(property, now){
@@ -37,7 +37,7 @@ Fx.Tween = new Class({
 		var args = Array.flatten(arguments);
 		this.property = this.options.property || args.shift();
 		var parsed = this.prepare(this.element, this.property, args);
-		return this.parent(parsed.from, parsed.to);
+		return Fx.CSS.prototype.start.call(this, parsed.from, parsed.to);
 	}
 
 });
